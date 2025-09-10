@@ -99,7 +99,18 @@ export default function App() {
         >
           <Button 
             className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all relative overflow-hidden group"
+            onClick={() => {
+              const audio = document.getElementById('floating-audio') as HTMLAudioElement;
+              if (audio) {
+                if (audio.paused) {
+                  audio.play();
+                } else {
+                  audio.pause();
+                }
+              }
+            }}
           >
+            <audio id="floating-audio" src="/789.mp3" preload="auto" />
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 opacity-0 group-hover:opacity-20"
               animate={{ rotate: [0, 360] }}
